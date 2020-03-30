@@ -1,0 +1,4 @@
+// Config.xcconfig
+
+DEVELOPMENT_TEAM =
+PRODUCT_BUNDLE_IDENTIFIER = 
