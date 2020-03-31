@@ -15,6 +15,7 @@
 		AC5BF857243269D100DD5F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5BF855243269D100DD5F2B /* LaunchScreen.storyboard */; };
 		AC5BF86324326D1000DD5F2B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BF86224326D1000DD5F2B /* LocationManager.swift */; };
 		AC5BF8652433232100DD5F2B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BF8642433232100DD5F2B /* AppData.swift */; };
+		AC5BF867243326E800DD5F2B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BF866243326E800DD5F2B /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AC5BF85F24326A2400DD5F2B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AC5BF86224326D1000DD5F2B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AC5BF8642433232100DD5F2B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		AC5BF866243326E800DD5F2B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				AC5BF855243269D100DD5F2B /* LaunchScreen.storyboard */,
 				AC5BF858243269D100DD5F2B /* Info.plist */,
 				AC5BF852243269D100DD5F2B /* Preview Content */,
+				AC5BF866243326E800DD5F2B /* Theme.swift */,
 			);
 			path = "Background Location";
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				AC5BF86324326D1000DD5F2B /* LocationManager.swift in Sources */,
 				AC5BF84B243269CE00DD5F2B /* AppDelegate.swift in Sources */,
 				AC5BF84D243269CE00DD5F2B /* SceneDelegate.swift in Sources */,
+				AC5BF867243326E800DD5F2B /* Theme.swift in Sources */,
 				AC5BF84F243269CE00DD5F2B /* ContentView.swift in Sources */,
 				AC5BF8652433232100DD5F2B /* AppData.swift in Sources */,
 			);
