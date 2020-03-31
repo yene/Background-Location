@@ -55,6 +55,10 @@
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Your location will be updated on our website.</string>
+	<key>LSApplicationCategoryType</key>
+	<array>
+		<string></string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -62,5 +66,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

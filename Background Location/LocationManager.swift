@@ -8,18 +8,25 @@ final class LocationManager: NSObject {
 	
 	private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 	private let manager = CLLocationManager()
+	var address = "http://localhost:3000"
 	
 	// TODO: find good balance between accuracy and tracking
+	// Saving battery: changing location accuracy to kCLLocationAccuracyThreeKilometers when your app moves to the background. Doing so allows you to continue receiving location updates in a power-friendly manner.
 	
 	func startMonitoring() {
 		manager.delegate = self
-		manager.pausesLocationUpdatesAutomatically = true
+		// manager.activityType = .automotiveNavigation
+		manager.pausesLocationUpdatesAutomatically = false // After a pause occurs, it is your responsibility to restart location services again
+		manager.allowsBackgroundLocationUpdates = true
+		manager.showsBackgroundLocationIndicator = true
 		manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-		manager.distanceFilter = 50.0 // distance in meters
-		manager.requestWhenInUseAuthorization()
+		manager.distanceFilter = 100 // distance in meters
+		manager.requestAlwaysAuthorization()
 		manager.startUpdatingLocation()
 	}
-	
+	func stopMonitoring() {
+		manager.stopUpdatingLocation()
+	}
 }
 extension LocationManager: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
@@ -32,6 +39,10 @@ extension LocationManager: CLLocationManagerDelegate {
 	
 	func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
 		print("LocationManager \(error)")
+	}
+	
+	func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
+		print("locationManagerDidPauseLocationUpdates")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -76,10 +87,11 @@ extension LocationManager {
 		do {
 			let cords = JSONCoordinates(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
 			let jsonData = try JSONEncoder().encode(cords)
-			let jsonString = String(data: jsonData, encoding: .utf8)!
-			print("sending: \(jsonString)")
 			
-			let url = URL(string: "http:/192.168.3.22:3000/update/22")!
+			// let jsonString = String(data: jsonData, encoding: .utf8)!
+			// print("sending: \(jsonString)")
+			
+			let url = URL(string: "\(address)/update/22")!
 			var request = URLRequest(url: url)
 			request.httpMethod = "POST"
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -97,10 +109,9 @@ extension LocationManager {
 					// self.handleServerError(response)
 					return
 				}
-				if let data = data,
-					let string = String(data: data, encoding: .utf8) {
+				/* if let data = data, let string = String(data: data, encoding: .utf8) {
 					print("response", string)
-				}
+				}*/
 			}
 			task.resume()
 		} catch { print(error) }
