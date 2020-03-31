@@ -1,1 +1,2 @@
 *.xcuserdatad
+server/node_modules
